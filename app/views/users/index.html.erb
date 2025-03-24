@@ -1,0 +1,21 @@
+<h1>Users List</h1>
+
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Role</th>
+  </tr>
+
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.role %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p>
+  <%= link_to "Sign Up New User", new_user_path %>
+</p>

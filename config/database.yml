@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: B1983ball#
+  host: localhost
+
+development:
+  <<: *default
+  database: my_basecamp_2_development
+
+test:
+  <<: *default
+  database: my_basecamp_2_test
+
+production:
+  <<: *default
+  database: my_basecamp_2_production
+  username: my_basecamp2
+  password: <%= ENV['MY_BASECAMP2_DATABASE_PASSWORD'] %>
