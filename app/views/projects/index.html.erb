@@ -1,0 +1,25 @@
+<h1>Create a New Project</h1>
+
+<div style="max-width: 500px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+  <%= form_with(model: @project, local: true) do |form| %>
+    
+    <div style="margin-bottom: 15px;">
+      <%= form.label :title, "Project Title" %><br>
+      <%= form.text_field :title, style: "width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc;" %>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <%= form.label :description, "Project Description" %><br>
+      <%= form.text_area :description, style: "width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; height: 100px;" %>
+    </div>
+
+    <div>
+      <%= form.submit "Create Project", style: "background-color: #007bff; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;" %>
+    </div>
+
+  <% end %>
+</div>
+
+<p style="margin-top: 15px;">
+  <%= link_to "Back to Projects", projects_path, style: "text-decoration: none; color: #007bff;" %>
+</p>

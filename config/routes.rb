@@ -1,12 +1,10 @@
-
 Rails.application.routes.draw do
   devise_for :users
-  root "users#new"  # Keep sign-up as homepage
   
-  resources :users, only: [:index, :new, :create]
+  root "projects#index"
+  
+  resources :users, only: [:index, :new, :create, :edit, :update]
+  resources :projects
 
-  # Add authentication routes
-  get "/login", to: "sessions#new"
-  post "/login", to: "sessions#create"
-  delete "/logout", to: "sessions#destroy"
+  # Remove manual auth routes if using Devise, or keep them if you have a custom SessionsController.
 end
