@@ -31,6 +31,20 @@
     <%= yield %>
 
 
+    <nav style="background-color: #333; padding: 10px;">
+  <a href="<%= root_path %>" style="color: white; margin-right: 15px;">Home</a>
+  <a href="<%= projects_path %>" style="color: white; margin-right: 15px;">Projects</a>
+
+  <% if user_signed_in? %>
+    <a href="<%= destroy_user_session_path %>" data-method="delete" style="color: white;">Logout</a>
+  <% else %>
+    <a href="<%= new_user_registration_path %>" style="color: white; margin-right: 15px;">Sign Up</a>
+    <a href="<%= new_user_session_path %>" style="color: white;">Login</a>
+  <% end %>
+</nav>
+
+
+
     <% if flash[:notice] %>
   <p style="color: green;"><%= flash[:notice] %></p>
 <% end %>

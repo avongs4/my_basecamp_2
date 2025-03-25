@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  root "welcome#index"  # Set the default homepage
+
+  # get "welcome/index"
   devise_for :users
   
   root "projects#index"
