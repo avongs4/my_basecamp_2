@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
-  root "welcome#index"  # Set the default homepage
+  root "welcome#index"  # Set homepage to welcome page
 
-  # get "welcome/index"
-  devise_for :users
-  
-  root "projects#index"
-  
-  resources :users, only: [:index, :new, :create, :edit, :update]
-  resources :projects
+  devise_for :users  # Devise authentication routes
 
-  # Remove manual auth routes if using Devise, or keep them if you have a custom SessionsController.
+  resources :projects  # Standard CRUD routes for projects
+  resources :users, only: [:index, :edit, :update] # Manage users (optional)
+
+  # Additional custom routes (if needed)
 end
